@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wa-container">
+
+    <!-- Header -->
+    <div class="wa-header glass-header">
+        <img src="/static/robo.png" class="wa-dp" alt="Bot">
+        <div class="header-info">
+            <span class="wa-title">AI Chatbot</span>
+            <span class="wa-status">Online</span>
+        </div>
+    </div>
+
+    <!-- Chat area -->
+    <div id="chatbox" class="wa-chatbox"></div>
+
+    <!-- Input area -->
+    <div class="wa-input-area">
+
+        <button id="micBtn" class="wa-icon-btn">🎤</button>
+
+        <input id="userInput" type="text" placeholder="Ask anything…" autocomplete="off">
+
+        <!-- Dynamic Dropdown -->
+        <div class="dropdown">
+            <div id="dropdownSelected" class="dropdown-selected">
+                EN <span class="arrow">▾</span>
+            </div>
+
+            <div id="dropdownMenu" class="dropdown-menu">
+                <div data-lang="en" class="dropdown-item">EN</div>
+                <div data-lang="hi" class="dropdown-item">HI</div>
+                <div data-lang="mr" class="dropdown-item">MR</div>
+            </div>
+        </div>
+
+        <button id="speakBtn" class="wa-icon-btn">🔊</button>
+
+        <button id="sendBtn" class="wa-send">➤</button>
+
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: #f5f5f5;
+    color: #fff;
+}
+
+/* CHATBOT CONTAINER */
+.wa-container {
+    width: 450px;
+    height: 100vh;
+    margin: auto;
+    background: linear-gradient(180deg, #2b2f55, #1f2340);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* HEADER */
+.glass-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(20,24,50,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+}
+
+.wa-dp {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.wa-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wa-status {
+    font-size: 11px;
+    color: #6dff9f;
+}
+
+/* CHATBOX */
+.wa-chatbox {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+    background: transparent;
+}
+
+/* MESSAGE WRAPPER */
+.msg {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+    animation: fadeIn .25s ease-out;
+}
+
+/* BOT MESSAGE (LEFT) */
+.msg.bot {
+    justify-content: flex-start;
+}
+
+.msg.bot .msg-bubble {
+    background: #f1f3f6;
+    color: #1f1f1f;
+    border-radius: 16px 16px 16px 4px;
+}
+
+/* USER MESSAGE (RIGHT) */
+.msg.user {
+    justify-content: flex-end;
+}
+
+.msg.user .msg-bubble {
+    background: #4a6cf7;
+    color: #ffffff;
+    border-radius: 16px 16px 4px 16px;
+}
+
+/* COMMON BUBBLE */
+.msg-bubble {
+    padding: 14px 18px;
+    max-width: 75%;
+    line-height: 1.55;
+    font-size: 14.5px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* AVATAR */
+.chat-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+/* FADE */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* TYPING */
+.typing-bubble {
+    display: flex;
+    gap: 5px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 14px;
+    width: fit-content;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+
+@keyframes blink {
+    0%,100% { opacity: .3; transform: translateY(0); }
+    50%     { opacity: 1; transform: translateY(-4px); }
+}
+
+/* INPUT AREA */
+.wa-input-area {
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(20,24,50,0.95);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+}
+
+#userInput {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    outline: none;
+}
+
+#userInput::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* ICON BUTTONS */
+.wa-icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: .25s;
+}
+
+.wa-icon-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* SEND */
+.wa-send {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4a6cf7, #6c8cff);
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 6px 22px rgba(74,108,247,0.6);
+}
+
+.wa-send:hover {
+    transform: scale(1.15);
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+    width: 75px;
+}
+
+.dropdown-selected {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 10px 14px;
+    border-radius: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(30,34,70,0.95);
+    border-radius: 14px;
+    display: none;
+    flex-direction: column;
+}
+.dropdown-menu.show {
+    display: flex;
+}
+.dropdown-item {
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.dropdown-item:hover {
+    background: rgba(255,255,255,0.18);
+}
